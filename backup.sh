@@ -3,7 +3,7 @@
 set -e
 cd /backups
 
-FILENAME="$(date -u +%FT%TZ).archive.gz"
+FILENAME="$(date -u +"%Y-%m-%d-%H-%M-%S").archive.gz"
 
 # make a new backup
 mongodump -h ${MONGO_HOST:-mongo} -p ${MONGO_PORT:-27017} \
