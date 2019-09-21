@@ -1,10 +1,10 @@
-FROM alpine:latest
+FROM alpine:3.9
 
 # add Tini (a simple init; ensures that zombie processes are reaped properly)
 RUN apk --update add --no-cache tini
 ENTRYPOINT ["/sbin/tini", "--"]
 
-RUN apk --update add mongodb-tools
+RUN apk add --no-cache mongodb-tools
 
 COPY backup.sh /backup.sh
 COPY entrypoint.sh /entrypoint.sh
